@@ -2,6 +2,14 @@ function getRandomNumber (min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
+function getPlayerSelection(roundNumber) {
+    const selection = prompt("Round " + roundNumber +
+        " - Please enter your selection - Rock, paper or scissors");
+
+    // If selection isn't null convert to lower case
+    return selection ? selection.toLowerCase().trim() : selection;
+}
+
 function getComputerSelection() {
     const randomNumber = getRandomNumber(1, 3);
 
@@ -14,16 +22,8 @@ function getComputerSelection() {
     }    
 }
 
-function getPlayerSelection(roundNumber) {
-    const selection = prompt("Round " + roundNumber +
-        " - Please enter your selection - Rock, paper or scissors");
-
-    // If selection isn't null convert to lower case
-    return selection ? selection.toLowerCase().trim() : selection;
-}
-
 function playRound(playerChoice, computerChoice) {
-    if (!playerChoice) {
+    if (playerChoice === null) {
         alert("Refresh to play again");
         return "cancelled";
     }
@@ -60,7 +60,7 @@ function playRound(playerChoice, computerChoice) {
     }
 }
 
-function playGame() {
+function game() {
     let playerScore = 0;
     let computerScore = 0;
 
@@ -91,4 +91,4 @@ function playGame() {
     alert("Refresh to play again");    
 }
 
-(playGame());
+(game());
