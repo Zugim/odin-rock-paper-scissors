@@ -19,7 +19,7 @@ function getPlayerSelection(roundNumber) {
         " - Please enter your selection - Rock, paper or scissors");
 
     // If selection isn't null convert to lower case
-    return selection ? selection.toLowerCase() : selection;
+    return selection ? selection.toLowerCase().trim() : selection;
 }
 
 function playRound(playerChoice, computerChoice) {
